@@ -68,8 +68,13 @@ function countFlips(array) {
         return "{ heads: " + headCount + " }";
       }
     }
+
+    const result = {
+      "tails": tailsCount,
+      "heads": headCount
+    }
   
-    let result = "{ tails: " + tailsCount + ", heads: " + headCount + " }";
+    // let result = "{ tails: " + tailsCount + ", heads: " + headCount + " }";
   
     return result;
 }
@@ -84,8 +89,12 @@ function flipACoin(call) {
     } else {
       flipResult = "lose";
     }
-  
-    let result = "{ call: " + call + ", flip: " + flip + ", result: " + flipResult + " }";
+    
+    const result = {
+      "call": call,
+      "flip": flip,
+      "result": flipResult
+    }
   
     return result;
 }
@@ -109,15 +118,13 @@ app.get('/app/flips/:number', (req, res) => {
 })
 
 app.get('/app/flip/call/heads', (req, res) => {
-    const headsString = "heads"
 
-    res.json(flipACoin(headsString));
+    res.status(200).json(flipACoin("heads"));
 })
 
 app.get('/app/flip/call/tails', (req, res) => {
-    const tailsString = "tails"
 
-    res.json(flipACoin(tailsString));
+    res.status(200).json(flipACoin("tails"));
 })
 
 // Default response for any other request 
