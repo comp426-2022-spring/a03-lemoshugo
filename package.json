@@ -17,5 +17,8 @@
     "url": "https://github.com/comp426-2022-spring/a03-lemoshugo/issues"
   },
   "homepage": "https://github.com/comp426-2022-spring/a03-lemoshugo#readme",
-  "type": "module"
+  
+  "dependencies": {
+    "express": "^4.17.3"
+  }
 }
